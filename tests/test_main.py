@@ -1,5 +1,14 @@
-from src.main import A
+import pytest
+
+from src.main import Calculator
 
 
-def test_main():
-    assert A.x == 1
+@pytest.mark.parametrize(
+    "x, y, res",
+    [
+        (1, 2, 0.5),
+        (5, -1, -5),
+    ]
+)
+def test_divide(x, y, res):
+    assert Calculator().divide(x, y) == res

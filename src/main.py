@@ -1,6 +1,15 @@
 from fastapi import FastAPI
+from typing import Union
 
 app = FastAPI()
+
+
+class Calculator:
+    def divide(self, x: Union[int, float], y: Union[int, float]) -> Union[int, float]:
+        return x / y
+
+    def add(self, x: Union[int, float], y: Union[int, float]) -> Union[int, float]:
+        return x + y
 
 
 @app.get("/")
@@ -12,5 +21,3 @@ async def root():
 async def say_hello(name: str):
     return {"message": f"Hello {name}"}
 
-class A:
-    x = 1
