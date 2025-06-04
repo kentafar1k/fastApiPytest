@@ -13,6 +13,7 @@ class TestCalculator:
             (1, 2, 0.5, does_not_raise()),  # типа не должно вызвать исключений, тогда тест пройдёт
             (5, -1, -5, does_not_raise()),
             (5, "-1", -5, pytest.raises(TypeError)),  # типа должно вызвать TypeError
+            (1, 0, '', pytest.raises(ZeroDivisionError)),
         ]
     )
     def test_divide(self, x, y, res, expectation):
