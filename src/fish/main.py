@@ -73,3 +73,11 @@ def delete_fish(fish_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Fish not found")
     return {"message": "Fish deleted successfully"}
 
+@app.delete("/fish/")
+def delete_all_fish(confirm: bool = False, db: Session = Depends(get_db)):
+    if not confirm:
+        raise HTTPException(status_code=400, detail="Set confirm=true to delete all fish")
+    FishService.delete_all(db)
+    return {"message": "All fish deleted successfully"}
+
+

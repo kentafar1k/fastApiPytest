@@ -37,3 +37,8 @@ class FishRepository:
         db.delete(fish)
         db.commit()
         return True
+
+    @staticmethod
+    def delete_all(db: Session):
+        db.query(Fish).delete()
+        db.commit()

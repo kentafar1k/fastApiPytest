@@ -35,3 +35,7 @@ class FishService:
     @classmethod
     def delete(cls, db: Session, fish_id: int) -> bool:
         return FishRepository.delete(db, fish_id)
+
+    @classmethod
+    def delete_all(cls, db: Session):
+        return FishRepository.delete_all(db)
