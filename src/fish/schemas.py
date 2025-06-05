@@ -1,8 +1,8 @@
 from pydantic import BaseModel, Field
 
 class FishBase(BaseModel):
-    name: str
-    diet: str
+    name: str = Field(default="рыбка")
+    diet: str = Field(default="herbivorous")
 
 class FishCreate(FishBase):
     pass
