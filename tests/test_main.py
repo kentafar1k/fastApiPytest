@@ -1,7 +1,7 @@
 import pytest
 from contextlib import nullcontext as does_not_raise
 
-from src.main import Calculator
+from src.fish.main import Calculator
 
 # pytest tests/test_main.py::TestCalculator::test_divide -v
 # pytest tests/test_main.py::TestCalculator -v
