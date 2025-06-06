@@ -1,6 +1,11 @@
 import pytest
 from contextlib import nullcontext as does_not_raise
 
+from src.fish.schemas import FishSchema
+from src.fish.service import FishService
+from src.fish.models import Fish
+from sqlalchemy.orm import Session
+
 from src.fish.main import Calculator
 
 # pytest tests/test_main.py::TestCalculator::test_divide -v
@@ -31,3 +36,21 @@ class TestCalculator:
     def test_add(self, x, y, res, expectation):
         with expectation:
             assert Calculator().add(x, y) == res
+
+
+@pytest.fixture
+def fishes():
+    fishes = [
+        FishSchema(name="fish1"),
+        FishSchema(name="fish2"),
+        FishSchema(name="fish3"),
+    ]
+    return fishes
+
+@pytest.fixture(scope="function")
+def empty_fishes(db):
+    FishService.delete_all(db)
+
+
+
+
