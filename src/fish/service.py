@@ -39,3 +39,7 @@ class FishService:
     @classmethod
     def delete_all(cls, db: Session):
         return FishRepository.delete_all(db)
+
+    @classmethod
+    def count(cls, db: Session) -> int:
+        return FishRepository.count(db)

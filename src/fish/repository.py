@@ -1,6 +1,8 @@
 from sqlalchemy.orm import Session
 from .models import Fish
 
+from sqlalchemy import delete, func, insert, select, update
+
 class FishRepository:
     @staticmethod
     def add(db: Session, fish_data: dict) -> Fish:
@@ -42,3 +44,9 @@ class FishRepository:
     def delete_all(db: Session):
         db.query(Fish).delete()
         db.commit()
+
+    @classmethod
+    def count(cls, db: Session) -> int:
+        query = select(func.count(Fish.id)).select_from(Fish)
+        fishes_count = db.execute(query)
+        return fishes_count.scalar()

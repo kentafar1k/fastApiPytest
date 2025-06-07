@@ -1,56 +1,35 @@
 import pytest
 from contextlib import nullcontext as does_not_raise
 
-from src.fish.schemas import FishSchema
+from src.fish.schemas import FishSchema, FishBase
 from src.fish.service import FishService
 from src.fish.models import Fish
 from sqlalchemy.orm import Session
 
 from src.fish.main import Calculator
 
+
 # pytest tests/test_main.py::TestCalculator::test_divide -v
-# pytest tests/test_main.py::TestCalculator -v
-
-class TestCalculator:
-    @pytest.mark.parametrize(
-        "x, y, res, expectation",
-        [
-            (1, 2, 0.5, does_not_raise()),  # типа не должно вызвать исключений, тогда тест пройдёт
-            (5, -1, -5, does_not_raise()),
-            (5, "-1", -5, pytest.raises(TypeError)),  # типа должно вызвать TypeError
-            (1, 0, '', pytest.raises(ZeroDivisionError)), # должно вызвать ZeroDivisionError
-        ]
-    )
-    def test_divide(self, x, y, res, expectation):
-        with expectation:
-            assert Calculator().divide(x, y) == res
-
-    @pytest.mark.parametrize(
-        "x, y, res, expectation",
-        [
-            (1, 2, 3, does_not_raise()),
-            (5, -1, 4, does_not_raise()),
-            (5, "-1", 4, pytest.raises(TypeError)),
-        ]
-    )
-    def test_add(self, x, y, res, expectation):
-        with expectation:
-            assert Calculator().add(x, y) == res
+# pytest tests/test_main.py::TestFish -v
 
 
 @pytest.fixture
-def fishes():
-    fishes = [
-        FishSchema(name="fish1"),
-        FishSchema(name="fish2"),
-        FishSchema(name="fish3"),
+def fishes(db):
+    fish_data = [
+        FishBase(name="fish1", diet="predator"),
+        FishBase(name="fish2", diet="predator"),
+        FishBase(name="fish3", diet="predator"),
     ]
-    return fishes
+    for fish in fish_data:
+        FishService.add(db, fish)
+    return fish_data
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="function", autouse=True)
 def empty_fishes(db):
     FishService.delete_all(db)
 
 
-
+class TestFish:
+    def test_count_fish(self, db, fishes, empty_fishes):
+        assert FishService.count(db) == 3
 

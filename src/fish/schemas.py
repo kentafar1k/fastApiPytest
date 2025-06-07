@@ -1,4 +1,5 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
+
 
 class FishBase(BaseModel):
     name: str = Field(default="рыбка")
@@ -13,6 +14,5 @@ class FishSchema(FishBase):
     def to_dict_wo_id(self):
         return self.model_dump(exclude={"id"})
 
-    class Config:
-        from_attributes = True  # для SQLAlchemy
+    model_config = ConfigDict(from_attributes=True)
 
