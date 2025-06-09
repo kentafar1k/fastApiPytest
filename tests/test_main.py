@@ -5,12 +5,22 @@ from src.fish.schemas import FishSchema, FishBase
 from src.fish.service import FishService
 from src.fish.models import Fish
 from sqlalchemy.orm import Session
+from src.fish.database import Base
 
 from src.fish.main import Calculator
 
 
 # pytest tests/test_main.py::TestCalculator::test_divide -v
 # pytest tests/test_main.py::TestFish -v
+
+@pytest.fixture(scope='function', autouse=True)  # автоюз типо автоматически используй фикстуру в тестах
+def setup_db(db):
+    print("Перед созданием бд")
+    Base.metadata.drop_all(db)
+    Base.metadata.create_all(db)
+    print("После созданием бд")
+
+
 
 
 @pytest.fixture
