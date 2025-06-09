@@ -5,7 +5,7 @@ from src.fish.schemas import FishSchema, FishBase
 from src.fish.service import FishService
 from src.fish.models import Fish
 from sqlalchemy.orm import Session
-from src.fish.database import Base
+from src.fish.database import Base, engine
 
 from src.fish.main import Calculator
 
@@ -14,10 +14,10 @@ from src.fish.main import Calculator
 # pytest tests/test_main.py::TestFish -v
 
 @pytest.fixture(scope='function', autouse=True)  # автоюз типо автоматически используй фикстуру в тестах
-def setup_db(db):
+def setup_db():
     print("Перед созданием бд")
-    Base.metadata.drop_all(db)
-    Base.metadata.create_all(db)
+    Base.metadata.drop_all(engine)
+    Base.metadata.create_all(engine)
     print("После созданием бд")
 
 
