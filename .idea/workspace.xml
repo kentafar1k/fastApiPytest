@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4808161-9dce-4f93-91bb-ed45ec6cdb43" name="Changes" comment="исправил ошибки">
+    <list default="true" id="d4808161-9dce-4f93-91bb-ed45ec6cdb43" name="Changes" comment="сделал со scope">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fish.db" beforeDir="false" afterPath="$PROJECT_DIR$/fish.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +55,7 @@
     "Python tests.Python tests for test_main.test_sum.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "E:/programming/Tech Tasks",
+    "last_opened_file_path": "E:/programming/fastApiPytest",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -155,6 +156,7 @@
       <workItem from="1749039217123" duration="14895000" />
       <workItem from="1749215129459" duration="2078000" />
       <workItem from="1749306409640" duration="2567000" />
+      <workItem from="1749476253247" duration="5526000" />
     </task>
     <task id="LOCAL-00001" summary="+ исключение на 0">
       <option name="closed" value="true" />
@@ -252,7 +254,31 @@
       <option name="project" value="LOCAL" />
       <updated>1749309437370</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="крч тесты работают">
+      <option name="closed" value="true" />
+      <created>1749476289308</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1749476289308</updated>
+    </task>
+    <task id="LOCAL-00014" summary="пробы параметра scope">
+      <option name="closed" value="true" />
+      <created>1749480229814</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1749480229814</updated>
+    </task>
+    <task id="LOCAL-00015" summary="сделал со scope">
+      <option name="closed" value="true" />
+      <created>1749482191857</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1749482191857</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +297,10 @@
     <MESSAGE value="написал 2 фикстуры" />
     <MESSAGE value="hz" />
     <MESSAGE value="исправил ошибки" />
-    <option name="LAST_COMMIT_MESSAGE" value="исправил ошибки" />
+    <MESSAGE value="крч тесты работают" />
+    <MESSAGE value="пробы параметра scope" />
+    <MESSAGE value="сделал со scope" />
+    <option name="LAST_COMMIT_MESSAGE" value="сделал со scope" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/fastApiPytest$.coverage" NAME=" Coverage Results" MODIFIED="1749041798157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
